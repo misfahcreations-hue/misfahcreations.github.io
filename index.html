@@ -16,10 +16,7 @@
     .logo { font-size: 22px; font-weight: bold; }
     .logo span { color: #7F77DD; }
     nav a { text-decoration: none; color: #666; margin-left: 24px; }
-    nav a:hover { color: #7F77DD; }
-    .hero {
-      background: #EEEDFE; padding: 80px 40px; text-align: center;
-    }
+    .hero { background: #EEEDFE; padding: 80px 40px; text-align: center; }
     .hero h1 { font-size: 38px; color: #3C3489; margin-bottom: 12px; }
     .hero p { font-size: 18px; color: #534AB7; margin-bottom: 28px; }
     .btn {
@@ -48,7 +45,6 @@
       padding: 10px; border-radius: 8px; text-decoration: none;
       text-align: center; font-size: 14px; font-weight: bold;
     }
-    .loading { text-align: center; color: #888; font-size: 16px; padding: 40px; }
     .contact-section { background: #EEEDFE; text-align: center; }
     .contact-section h2 { color: #3C3489; }
     .contact-section p { color: #534AB7; margin-bottom: 10px; font-size: 16px; }
@@ -82,9 +78,7 @@
 
 <section id="products">
   <h2>Our Products</h2>
-  <div class="products" id="product-grid">
-    <div class="loading">Loading products...</div>
-  </div>
+  <div class="products" id="product-grid"></div>
 </section>
 
 <section class="contact-section" id="contact">
@@ -106,52 +100,62 @@
 </footer>
 
 <script>
-var SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTpPn4MLFZ1-J_rswVQ9qCI5ba2M7uzCEGUNqRCmXVevcSmIJq17AF2TjRaixFguCangf_lrq4pwQeG/pub?gid=0&single=true&output=csv";
-var PROXY = "https://api.allorigins.win/raw?url=";
+// =============================================
+// 👇 EDIT YOUR PRODUCTS HERE — VERY EASY!
+// Just change name, description, price, image, whatsapp
+// To add more products, copy one block and paste it
+// =============================================
+var products = [
+  {
+    name: "Premium Diary",
+    description: "Leather-bound, 365 pages",
+    price: "PKR 850",
+    image: "https://via.placeholder.com/300x200?text=Premium+Diary",
+    whatsapp: "923001234567"
+  },
+  {
+    name: "Classic Notebook",
+    description: "A5 size, 200 pages",
+    price: "PKR 450",
+    image: "https://drive.google.com/file/d/19oLh_8Ur2mZ64iMR5PZns8x973pbWRvD/view?usp=drive_link",
+    whatsapp: "923001234567"
+  },
+  {
+    name: "Planner Journal",
+    description: "Weekly and monthly layout",
+    price: "PKR 650",
+    image: "https://via.placeholder.com/300x200?text=Planner+Journal",
+    whatsapp: "923001234567"
+  },
+  {
+    name: "Mini Notebook",
+    description: "Pocket size, set of 3",
+    price: "PKR 350",
+    image: "https://via.placeholder.com/300x200?text=Mini+Notebook",
+    whatsapp: "923001234567"
+  }
+];
+// =============================================
+// 👆 STOP EDITING HERE
+// =============================================
 
 var grid = document.getElementById("product-grid");
+grid.innerHTML = "";
 
-fetch(PROXY + encodeURIComponent(SHEET_URL))
-  .then(function(res) { return res.text(); })
-  .then(function(csv) {
-    var rows = csv.trim().split("\n");
-    rows.shift();
-    grid.innerHTML = "";
-
-    if (rows.length === 0) {
-      grid.innerHTML = "<p style='text-align:center;color:#888;'>No products yet!</p>";
-      return;
-    }
-
-    rows.forEach(function(row) {
-      var cols = row.split(",");
-      var name = (cols[0] || "").trim();
-      var desc = (cols[1] || "").trim();
-      var price = (cols[2] || "").trim();
-      var image = (cols[3] || "").trim();
-      var wa = (cols[4] || "").trim();
-
-      if (!name) return;
-
-      var msg = "Hi! I want to order: " + name + " - " + price;
-      var waLink = "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg);
-      var imgSrc = image || "https://via.placeholder.com/300x200?text=" + encodeURIComponent(name);
-
-      grid.innerHTML += 
-        '<div class="product-card">' +
-          '<img src="' + imgSrc + '" alt="' + name + '" onerror="this.src=\'https://via.placeholder.com/300x200?text=No+Image\'">' +
-          '<div class="card-body">' +
-            '<div class="product-name">' + name + '</div>' +
-            '<div class="product-desc">' + desc + '</div>' +
-            '<div class="product-price">' + price + '</div>' +
-            '<a href="' + waLink + '" class="order-btn">Order on WhatsApp</a>' +
-          '</div>' +
-        '</div>';
-    });
-  })
-  .catch(function() {
-    grid.innerHTML = "<p style='text-align:center;color:red;'>Could not load products. Please try again later.</p>";
-  });
+products.forEach(function(p) {
+  var msg = "Hi! I want to order: " + p.name + " - " + p.price;
+  var waLink = "https://wa.me/" + p.whatsapp + "?text=" + encodeURIComponent(msg);
+  grid.innerHTML +=
+    '<div class="product-card">' +
+      '<img src="' + p.image + '" alt="' + p.name + '">' +
+      '<div class="card-body">' +
+        '<div class="product-name">' + p.name + '</div>' +
+        '<div class="product-desc">' + p.description + '</div>' +
+        '<div class="product-price">' + p.price + '</div>' +
+        '<a href="' + waLink + '" class="order-btn">Order on WhatsApp</a>' +
+      '</div>' +
+    '</div>';
+});
 </script>
 
 </body>
