@@ -7,98 +7,55 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: Arial, sans-serif; color: #333; }
-
     nav {
-      background: white;
-      border-bottom: 1px solid #eee;
-      padding: 16px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+      background: white; border-bottom: 1px solid #eee;
+      padding: 16px 40px; display: flex;
+      justify-content: space-between; align-items: center;
+      position: sticky; top: 0; z-index: 100;
     }
     .logo { font-size: 22px; font-weight: bold; }
     .logo span { color: #7F77DD; }
     nav a { text-decoration: none; color: #666; margin-left: 24px; }
-
+    nav a:hover { color: #7F77DD; }
     .hero {
-      background: #EEEDFE;
-      padding: 80px 40px;
-      text-align: center;
+      background: #EEEDFE; padding: 80px 40px; text-align: center;
     }
     .hero h1 { font-size: 38px; color: #3C3489; margin-bottom: 12px; }
     .hero p { font-size: 18px; color: #534AB7; margin-bottom: 28px; }
     .btn {
-      background: #534AB7;
-      color: white;
-      padding: 14px 36px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
+      background: #534AB7; color: white; padding: 14px 36px;
+      border-radius: 30px; text-decoration: none; font-weight: bold;
     }
-
     section { padding: 60px 40px; }
     section h2 { font-size: 28px; text-align: center; margin-bottom: 40px; }
-
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      max-width: 960px;
-      margin: 0 auto;
+      gap: 24px; max-width: 960px; margin: 0 auto;
     }
     .product-card {
-      background: white;
-      border: 1px solid #eee;
-      border-radius: 12px;
-      overflow: hidden;
+      background: white; border: 1px solid #eee;
+      border-radius: 12px; overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
-    .product-card img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
+    .product-card img { width: 100%; height: 180px; object-fit: cover; }
     .card-body { padding: 16px; }
     .product-name { font-size: 15px; font-weight: bold; margin-bottom: 6px; }
     .product-desc { font-size: 13px; color: #888; margin-bottom: 10px; }
     .product-price { font-size: 17px; font-weight: bold; color: #534AB7; margin-bottom: 12px; }
     .order-btn {
-      display: block;
-      background: #25D366;
-      color: white;
-      padding: 10px;
-      border-radius: 8px;
-      text-decoration: none;
-      text-align: center;
-      font-size: 14px;
-      font-weight: bold;
+      display: block; background: #25D366; color: white;
+      padding: 10px; border-radius: 8px; text-decoration: none;
+      text-align: center; font-size: 14px; font-weight: bold;
     }
-
-    .loading {
-      text-align: center;
-      color: #888;
-      font-size: 16px;
-      padding: 40px;
-    }
-
-    .contact-section {
-      background: #EEEDFE;
-      text-align: center;
-    }
+    .loading { text-align: center; color: #888; font-size: 16px; padding: 40px; }
+    .contact-section { background: #EEEDFE; text-align: center; }
     .contact-section h2 { color: #3C3489; }
-    .contact-section p { color: #534AB7; margin-bottom: 20px; }
-
+    .contact-section p { color: #534AB7; margin-bottom: 10px; font-size: 16px; }
     footer {
-      background: #1a1a2e;
-      color: #aaa;
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
+      background: #1a1a2e; color: #aaa;
+      text-align: center; padding: 20px; font-size: 14px;
     }
-
     @media (max-width: 600px) {
       nav { padding: 14px 20px; }
       .hero { padding: 50px 20px; }
@@ -136,7 +93,7 @@
   <p>📍 Karachi, Pakistan</p>
   <p>📧 misfah@email.com</p>
   <br>
-  <a href="https://wa.me/923202756632"
+  <a href="https://wa.me/923001234567"
      style="display:inline-block;background:#25D366;color:white;
             padding:14px 36px;border-radius:30px;text-decoration:none;
             font-weight:bold;margin-top:10px;">
@@ -147,55 +104,55 @@
 <footer>
   <p>© 2026 Misfah Creations. All rights reserved. Karachi, Pakistan.</p>
 </footer>
-  
+
 <script>
-  const SHEET_URL =  https://docs.google.com/spreadsheets/d/e/2PACX-1vTpPn4MLFZ1-J_rswVQ9qCI5ba2M7uzCEGUNqRCmXVevcSmIJq17AF2TjRaixFguCangf_lrq4pwQeG/pub?gid=0&single=true&output=csv;
+var SHEET_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTpPn4MLFZ1-J_rswVQ9qCI5ba2M7uzCEGUNqRCmXVevcSmIJq17AF2TjRaixFguCangf_lrq4pwQeG/pub?gid=0&single=true&output=csv";
+var PROXY = "https://api.allorigins.win/raw?url=";
 
-  const PROXY = 'https://api.allorigins.win/raw?url=';
+var grid = document.getElementById("product-grid");
 
-  fetch(PROXY + encodeURIComponent(SHEET_URL))
-    .then(res => res.text())
-    .then(csv => {
-      const rows = csv.trim().split('\n').slice(1);
-      const grid = document.getElementById('product-grid');
-      grid.innerHTML = '';
+fetch(PROXY + encodeURIComponent(SHEET_URL))
+  .then(function(res) { return res.text(); })
+  .then(function(csv) {
+    var rows = csv.trim().split("\n");
+    rows.shift();
+    grid.innerHTML = "";
 
-      if(rows.length === 0 || rows[0] === '') {
-        grid.innerHTML = '<p style="text-align:center;color:#888;">No products yet. Add some in your Google Sheet!</p>';
-        return;
-      }
+    if (rows.length === 0) {
+      grid.innerHTML = "<p style='text-align:center;color:#888;'>No products yet!</p>";
+      return;
+    }
 
-      rows.forEach(row => {
-        const cols = row.split(',');
-        const name = cols[0] || '';
-        const description = cols[1] || '';
-        const price = cols[2] || '';
-        const image = cols[3] || '';
-        const whatsapp = cols[4] || '';
+    rows.forEach(function(row) {
+      var cols = row.split(",");
+      var name = (cols[0] || "").trim();
+      var desc = (cols[1] || "").trim();
+      var price = (cols[2] || "").trim();
+      var image = (cols[3] || "").trim();
+      var wa = (cols[4] || "").trim();
 
-        const msg = `Hi! I want to order: ${name} - ${price}`;
-        const waLink = `https://wa.me/${whatsapp.trim()}?text=${encodeURIComponent(msg)}`;
-        const imgSrc = image.trim() || 'https://via.placeholder.com/300x200?text=No+Image';
+      if (!name) return;
 
-        grid.innerHTML += `
-          <div class="product-card">
-            <img src="${imgSrc}" alt="${name}"
-                 onerror="this.src='https://via.placeholder.com/300x200?text=No+Image'">
-            <div class="card-body">
-              <div class="product-name">${name}</div>
-              <div class="product-desc">${description}</div>
-              <div class="product-price">${price}</div>
-              <a href="${waLink}" class="order-btn">Order on WhatsApp</a>
-            </div>
-          </div>`;
-      });
-    })
-    .catch(() => {
-      document.getElementById('product-grid').innerHTML =
-        '<p style="text-align:center;color:red;">Could not load products. Please check your sheet URL.</p>';
+      var msg = "Hi! I want to order: " + name + " - " + price;
+      var waLink = "https://wa.me/" + wa + "?text=" + encodeURIComponent(msg);
+      var imgSrc = image || "https://via.placeholder.com/300x200?text=" + encodeURIComponent(name);
+
+      grid.innerHTML += 
+        '<div class="product-card">' +
+          '<img src="' + imgSrc + '" alt="' + name + '" onerror="this.src=\'https://via.placeholder.com/300x200?text=No+Image\'">' +
+          '<div class="card-body">' +
+            '<div class="product-name">' + name + '</div>' +
+            '<div class="product-desc">' + desc + '</div>' +
+            '<div class="product-price">' + price + '</div>' +
+            '<a href="' + waLink + '" class="order-btn">Order on WhatsApp</a>' +
+          '</div>' +
+        '</div>';
     });
+  })
+  .catch(function() {
+    grid.innerHTML = "<p style='text-align:center;color:red;'>Could not load products. Please try again later.</p>";
+  });
 </script>
-
 
 </body>
 </html>
