@@ -19,129 +19,90 @@
       top: 0;
       z-index: 100;
     }
-    .logo { font-size: 22px; font-weight: bold; color: #333; }
+    .logo { font-size: 22px; font-weight: bold; }
     .logo span { color: #7F77DD; }
-    nav a {
-      text-decoration: none;
-      color: #666;
-      margin-left: 24px;
-      font-size: 15px;
-    }
-    nav a:hover { color: #7F77DD; }
+    nav a { text-decoration: none; color: #666; margin-left: 24px; }
 
     .hero {
       background: #EEEDFE;
       padding: 80px 40px;
       text-align: center;
     }
-    .hero h1 { font-size: 42px; color: #3C3489; margin-bottom: 12px; }
-    .hero p { font-size: 18px; color: #534AB7; margin-bottom: 30px; }
+    .hero h1 { font-size: 38px; color: #3C3489; margin-bottom: 12px; }
+    .hero p { font-size: 18px; color: #534AB7; margin-bottom: 28px; }
     .btn {
       background: #534AB7;
       color: white;
       padding: 14px 36px;
       border-radius: 30px;
       text-decoration: none;
-      font-size: 16px;
       font-weight: bold;
-      display: inline-block;
     }
-    .btn:hover { background: #3C3489; }
 
     section { padding: 60px 40px; }
-    section h2 {
-      font-size: 28px;
-      text-align: center;
-      margin-bottom: 40px;
-      color: #333;
-    }
+    section h2 { font-size: 28px; text-align: center; margin-bottom: 40px; }
 
     .products {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 24px;
-      max-width: 900px;
+      max-width: 960px;
       margin: 0 auto;
     }
     .product-card {
       background: white;
       border: 1px solid #eee;
       border-radius: 12px;
-      padding: 24px;
-      text-align: center;
+      overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
-    .product-card:hover { box-shadow: 0 4px 16px rgba(127,119,221,0.2); }
-    .product-icon { font-size: 48px; margin-bottom: 14px; }
-    .product-name { font-size: 16px; font-weight: bold; margin-bottom: 6px; }
-    .product-desc { font-size: 13px; color: #888; margin-bottom: 12px; }
-    .product-price { font-size: 18px; font-weight: bold; color: #534AB7; }
-
-    .why { background: #f9f9f9; }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 20px;
-      max-width: 900px;
-      margin: 0 auto;
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
     }
-    .feature {
-      background: white;
-      border-radius: 10px;
-      padding: 24px;
+    .card-body { padding: 16px; }
+    .product-name { font-size: 15px; font-weight: bold; margin-bottom: 6px; }
+    .product-desc { font-size: 13px; color: #888; margin-bottom: 10px; }
+    .product-price { font-size: 17px; font-weight: bold; color: #534AB7; margin-bottom: 12px; }
+    .order-btn {
+      display: block;
+      background: #25D366;
+      color: white;
+      padding: 10px;
+      border-radius: 8px;
+      text-decoration: none;
       text-align: center;
-      border: 1px solid #eee;
+      font-size: 14px;
+      font-weight: bold;
     }
-    .feature-icon { font-size: 36px; margin-bottom: 12px; }
-    .feature-title { font-size: 15px; font-weight: bold; margin-bottom: 6px; }
-    .feature-desc { font-size: 13px; color: #888; }
+
+    .loading {
+      text-align: center;
+      color: #888;
+      font-size: 16px;
+      padding: 40px;
+    }
 
     .contact-section {
       background: #EEEDFE;
       text-align: center;
     }
     .contact-section h2 { color: #3C3489; }
-    .contact-section p { color: #534AB7; margin-bottom: 30px; font-size: 16px; }
-    .contact-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .contact-card {
-      background: white;
-      border-radius: 10px;
-      padding: 18px;
-      border: 1px solid #ddd;
-    }
-    .contact-label { font-size: 12px; color: #888; margin-bottom: 6px; }
-    .contact-val { font-size: 15px; font-weight: bold; color: #333; }
-
-    .whatsapp-btn {
-      display: inline-block;
-      background: #25D366;
-      color: white;
-      padding: 14px 36px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      margin-top: 30px;
-    }
+    .contact-section p { color: #534AB7; margin-bottom: 20px; }
 
     footer {
       background: #1a1a2e;
       color: #aaa;
       text-align: center;
-      padding: 24px;
+      padding: 20px;
       font-size: 14px;
     }
 
     @media (max-width: 600px) {
       nav { padding: 14px 20px; }
-      .hero { padding: 60px 20px; }
-      .hero h1 { font-size: 28px; }
+      .hero { padding: 50px 20px; }
+      .hero h1 { font-size: 26px; }
       section { padding: 40px 20px; }
     }
   </style>
@@ -152,7 +113,6 @@
   <div class="logo">Misfah <span>Creations</span></div>
   <div>
     <a href="#products">Products</a>
-    <a href="#about">About</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
@@ -165,89 +125,66 @@
 
 <section id="products">
   <h2>Our Products</h2>
-  <div class="products">
-    <div class="product-card">
-      <div class="product-icon">📓</div>
-      <div class="product-name">Premium Diary</div>
-      <div class="product-desc">Leather-bound, 365 pages</div>
-      <div class="product-price">PKR 850</div>
-    </div>
-    <div class="product-card">
-      <div class="product-icon">📔</div>
-      <div class="product-name">Classic Notebook</div>
-      <div class="product-desc">A5 size, 200 pages</div>
-      <div class="product-price">PKR 450</div>
-    </div>
-    <div class="product-card">
-      <div class="product-icon">📒</div>
-      <div class="product-name">Planner Journal</div>
-      <div class="product-desc">Weekly & monthly layout</div>
-      <div class="product-price">PKR 650</div>
-    </div>
-    <div class="product-card">
-      <div class="product-icon">🗒️</div>
-      <div class="product-name">Mini Notebook</div>
-      <div class="product-desc">Pocket size, set of 3</div>
-      <div class="product-price">PKR 350</div>
-    </div>
-  </div>
-</section>
-
-<section class="why" id="about">
-  <h2>Why choose us</h2>
-  <div class="features">
-    <div class="feature">
-      <div class="feature-icon">⭐</div>
-      <div class="feature-title">Premium Quality</div>
-      <div class="feature-desc">Top-grade paper & covers</div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🚚</div>
-      <div class="feature-title">Fast Delivery</div>
-      <div class="feature-desc">Delivered across Pakistan</div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">🎁</div>
-      <div class="feature-title">Gift Wrapping</div>
-      <div class="feature-desc">Perfect for gifting</div>
-    </div>
-    <div class="feature">
-      <div class="feature-icon">💬</div>
-      <div class="feature-title">24/7 Support</div>
-      <div class="feature-desc">Via WhatsApp anytime</div>
-    </div>
+  <div class="products" id="product-grid">
+    <div class="loading">Loading products...</div>
   </div>
 </section>
 
 <section class="contact-section" id="contact">
   <h2>Contact Us</h2>
   <p>Order via WhatsApp or reach out anytime</p>
-  <div class="contact-cards">
-    <div class="contact-card">
-      <div class="contact-label">Location</div>
-      <div class="contact-val">Karachi, Pakistan</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-label">WhatsApp</div>
-      <div class="contact-val">+92 XXX XXXXXXX</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-label">Email</div>
-      <div class="contact-val">misfah@email.com</div>
-    </div>
-    <div class="contact-card">
-      <div class="contact-label">Instagram</div>
-      <div class="contact-val">@misfahcreations</div>
-    </div>
-  </div>
-  <a href="https://wa.me/92XXXXXXXXXX" class="whatsapp-btn">
-    Order on WhatsApp
+  <p>📍 Karachi, Pakistan</p>
+  <p>📧 misfah@email.com</p>
+  <br>
+  <a href="https://wa.me/923202756632"
+     style="display:inline-block;background:#25D366;color:white;
+            padding:14px 36px;border-radius:30px;text-decoration:none;
+            font-weight:bold;margin-top:10px;">
+    Chat on WhatsApp
   </a>
 </section>
 
 <footer>
   <p>© 2026 Misfah Creations. All rights reserved. Karachi, Pakistan.</p>
 </footer>
+
+<script>
+  // 👇 PASTE YOUR GOOGLE SHEET CSV LINK HERE
+  const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTpPn4MLFZ1-J_rswVQ9qCI5ba2M7uzCEGUNqRCmXVevcSmIJq17AF2TjRaixFguCangf_lrq4pwQeG/pubhtml?gid=0&single=true';
+
+  fetch(SHEET_URL)
+    .then(res => res.text())
+    .then(csv => {
+      const rows = csv.trim().split('\n').slice(1);
+      const grid = document.getElementById('product-grid');
+      grid.innerHTML = '';
+
+      rows.forEach(row => {
+        const [name, description, price, image, whatsapp] = row.split(',');
+        const msg = `Hi! I want to order: ${name} - ${price}`;
+        const waLink = `https://wa.me/${whatsapp}?text=${encodeURIComponent(msg)}`;
+        const imgSrc = image.trim().startsWith('http')
+          ? image.trim()
+          : image.trim();
+
+        grid.innerHTML += `
+          <div class="product-card">
+            <img src="${imgSrc}" alt="${name}"
+                 onerror="this.src='https://via.placeholder.com/300x180?text=No+Image'">
+            <div class="card-body">
+              <div class="product-name">${name}</div>
+              <div class="product-desc">${description}</div>
+              <div class="product-price">${price}</div>
+              <a href="${waLink}" class="order-btn">Order on WhatsApp</a>
+            </div>
+          </div>`;
+      });
+    })
+    .catch(() => {
+      document.getElementById('product-grid').innerHTML =
+        '<p style="text-align:center;color:red;">Could not load products. Please check your sheet URL.</p>';
+    });
+</script>
 
 </body>
 </html>
